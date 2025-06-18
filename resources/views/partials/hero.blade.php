@@ -10,7 +10,7 @@
             
             <!-- Кнопки -->
             <div class="flex flex-col md:flex-row justify-center gap-4">
-                <a href="/register" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">Начать бесплатно</a>
+                <a href="/login?tab=register" class="bg-blue-600 text-white px-6 py-3 rounded hover:bg-blue-700 transition">Начать бесплатно</a>
                 <a href="#demo" class="group-relative bg-white border border-gray-300 text-gray-700 px-6 py-3 rounded hover:bg-gray-50 transition relative">
                     Заявка на демо
                     <div class="absolute inset-0 border-2 border-transparent group-relative:hover:border-blue-500 rounded pointer-events-none"></div>

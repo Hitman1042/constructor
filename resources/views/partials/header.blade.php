@@ -19,9 +19,9 @@
         <!-- Кнопки справа -->
         <div class="flex items-center space-x-4">
             <a href="/login" class="text-gray-700 hover:text-gray-900 transition">Войти</a>
-            <a href="/register" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
-                Начать бесплатно
-            </a>
+            <a href="/login?tab=register" class="bg-blue-600 text-white px-6 py-2 rounded-full hover:bg-blue-700 transition">
+    		Начать бесплатно
+		</a>
         </div>
 
         <!-- Бургер-меню (только на мобильных) -->
@@ -42,7 +42,7 @@
         <a href="/login" class="block bg-white border border-gray-300 text-gray-700 px-4 py-2 rounded hover:bg-gray-50 transition">
             Войти
         </a>
-        <a href="/register" class="block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
+        <a href="{{ route('register') }}" class="block bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700 transition">
             Начать бесплатно
         </a>
     </div>
