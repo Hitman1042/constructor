@@ -43,3 +43,15 @@ Route::get('/verify-email/{userId}/{token}', [App\Http\Controllers\Auth\Register
 // Повторная отправка письма
 Route::post('/resend-verification', [App\Http\Controllers\Auth\RegisterController::class, 'resendVerification'])
     ->name('resend.verification');
+
+Route::middleware(['auth'])->group(function () {
+    Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+    Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
+    Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    Route::get('/pricing', function () {
+        return view('dashboard.pricing');
+    })->name('pricing');
+    Route::get('/help', function () {
+        return view('dashboard.help');
+    })->name('help');
+});
