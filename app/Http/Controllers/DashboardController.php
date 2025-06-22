@@ -1,18 +1,14 @@
 // app/Http/Controllers/DashboardController.php
-public function index()
-{
-    $projects = auth()->user()->projects;
-    return view('dashboard', compact('projects'));
-}
+<?php
 
-// app/Http/Controllers/ProfileController.php
-public function edit()
-{
-    return view('profile.edit');
-}
+namespace App\Http\Controllers;
 
-public function update(Request $request)
+use Illuminate\Contracts\Auth\Access\Gate;
+
+class DashboardController extends Controller
 {
-    // Логика обновления профиля
-    return redirect()->route('profile.edit')->with('success', 'Данные обновлены');
+    public function index()
+    {
+        return view('dashboard');
+    }
 }

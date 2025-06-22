@@ -16,9 +16,9 @@ Route::resource('/blocks', BlockController::class);
 Route::resource('/projects', ProjectController::class);
 
 // Форма регистрации
-Route::get('/login?tab=register', function () {
-    return view('auth.login');
-});
+Route::get('/register', function () {
+    return view('auth.login', ['tab' => 'register']);
+})->name('register');
 
 // Страница входа (GET)
 Route::get('/login', function () {
