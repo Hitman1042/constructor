@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BlockController;
 use App\Http\Controllers\ProjectController;
+use App\Http\Controllers\Auth\LoginController;
 
 // Главная страница
 Route::get('/', function () {
@@ -26,7 +27,9 @@ Route::get('/login', function () {
 })->name('login');
 
 // Обработка входа (POST)
-Route::post('/login', [App\Http\Controllers\Auth\LoginController::class, 'store'])->name('login.store');
+Route::post('/login_store', 
+[LoginController::class, 'store']   
+)->name('login.store');
 
 // Страница регистрации (GET)
 Route::get('/register', function () {
@@ -46,8 +49,8 @@ Route::post('/resend-verification', [App\Http\Controllers\Auth\RegisterControlle
 
 Route::middleware(['auth'])->group(function () {
     Route::get('/dashboard', [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-    Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
-    Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
+    // Route::get('/profile', [App\Http\Controllers\ProfileController::class, 'edit'])->name('profile.edit');
+    // Route::put('/profile', [App\Http\Controllers\ProfileController::class, 'update'])->name('profile.update');
     Route::get('/pricing', function () {
         return view('dashboard.pricing');
     })->name('pricing');

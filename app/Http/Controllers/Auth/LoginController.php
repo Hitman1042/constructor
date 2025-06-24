@@ -7,20 +7,24 @@ use Illuminate\Support\Facades\Auth;
 
 class LoginController extends Controller
 {
-	public function store(Request $request)
-{
-    $credentials = $request->validate([
-        'email' => ['required', 'email'],
-        'password' => ['required'],
-    ]);
+    public function login(Request $request)
+    {
+        $credentials = $request->validate([
+            'email' => ['required', 'email'],
+            'password' => ['required'],
+        ]);
 
-    if (Auth::attempt($credentials)) {
-        $request->session()->regenerate(); // !Важно!
-        return redirect('/dashboard');
+        if (Auth::attempt($credentials)) {
+            $request->session()->regenerate(); // !Важно!
+            return redirect('/dashboard');
+        }
+
+        return back()
+            ->withErrors(['email' => 'Неверный email или пароль'])
+            ->withInput();
     }
 
-    return back()
-        ->withErrors(['email' => 'Неверный email или пароль'])
-        ->withInput();
-}
+    public function store() {
+        
+    }
 }
